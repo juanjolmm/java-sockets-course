@@ -1,0 +1,2274 @@
+MASTER DE JAVA    
+
+ Variables y tipos de datos.
+
+Las variables son valores que damos a diferentes tipos de datos :
+int altura;		//Declaracion
+altura=185;		//Inicializacion
+Tipos numericos:
+
+-Byte : Es un conjunto de 0 y 1, en total ocho. Puede ir del 0 hasta el 256.
+            Un Byte esta compuesto de 8 bits que es cada uno y cero que compone el Byte.
+
+-Short : Este tipo lo componen 2 Bytes y puede llegar al numero 65536.
+
+-Int : Este tipo lo componen 4Bytes y puede llegar al numero 4000000000.
+
+-Long : Este tipo lo componen 8Bytes y puede llegar al numero ~ aprox...
+
+Para crear una variable tenemos que decir: <tipo> <nombre>;
+Int altura; 		// Declaración
+Altura=180; 		//Inicialización
+ Las variables se pueden declarar en cualquier parte del programa.
+
+Variables con números decimales:
+
+-Float : Utiliza 4 Bytes y hace aproximaciones de los números.
+-Double : Utiliza 8 Bytes y es para números mas grandes y mas precisos.
+
+Tipos para almacenar letras.
+
+-Char : Utiliza 2 Bytes y almacena una letra.
+-String : Almacena las letras que le pongamos.
+
+En este punto hay que separar entre diferentes tablas de caracteres , la tabla ASCII es de 1B 
+(256 comb) . Los primeros 127 son los internacionales y hasta el 255 son los regionales.
+La tabla UNICODE de 2B abarca todos los tipos de caracteres.
+
+Constantes y literales.
+
+Las constantes son variables que una vez inicializadas no las podemos modificar , 
+utilizamos "final" , pe : final double pi = 3.1415
+Las constantes son mas rápidas que las variables.
+Un literal es el número , letra o carácter al que se inicializa una variable.
+Int altura = 3 ;                                Literal.
+
+El tipo Boolean.
+
+Es un tipo que solo puede tener los valores de verdadero y falso. 
+La máquina virtual de Java es de 32 bits , que quiere decir que lee la información de 32 en 
+32 bits , por eso no se utiliza el tipo byte sino el tipo Int. Por ejemplo aunque el tipo 
+boolean  solo utiliza un bit se envian 32 para ganar en velocidad.
+Los literales como 37 ocupan 32 bits pero para numeros grandes como 38000L (pasado a 
+long) utiliza los 64 bits.
+3.47 (double) gasta 8 B pero 3.47 F (float) gasta 4 B.
+En java 1000000 = 1e6 ; La e representa el *10 elevado al numero que tiene detrás.
+
+Literales de letra.
+
+El tipo char siempre va entre comillas simples y el tipo String va entre comillas dobles.
+En los literales de letra se pueden concatenar variables :
+String nombre = "Juan";
+String apellido = "Lopez";
+String nombreCompleto = nombre + apellido ; 
+En java a la hora de mandar al programa imprimir en pantalla algo hay unas formas 
+especiales :
+/n : Empieza en una nueva línea.
+/t : Hace una tabulación.
+/": Escribe comillas dentro del texto.
+// : Escribe una / dentro del texto.
+Todas estas formas se escriben dentro de las comillas del System.out.print
+
+
+OPERADORES Y EXPRESIONES    
+
+
+A= 4b + c ; 			Expresión.
+Operandos : Variables sobre las que hacemos operaciones.
+Operador : Es el tipo de operación. * , / , + , - .
+
+Opeadores aritméticos :
++ , - , * , / .La división devuelve el resultado en el tipo de dato en el que estemos 
+trabajando.
+El operador % devuelve el resto de una división . 5 % 2 = 1 ;
+-(a + +) Esto es un incremento.
+- (a - -) Esto es un decremento.
+Int a = 5 ;
+a ++ ;
+System.out.println(a) ; //a = 6 ;
+
+Preincremento (+ + a)
+Incremento
+Postincremento (- - a)
+
+a = 2 ;
+b =2 * (a + +) ;		b = 2 * (+ + a) ;
+
+a = 3 ;		        b =  4 ;	      a = 3 ;		b =  6 ;
+Prioridades de los Operadores .
+
+
+                 ( ) 
+
+                 (- - a , + + a)				Los operadores relacionales,
+                
+                 *    /   %					tienen menos prioridad que 
+				
+                 +      -					los aritmeticos.
+
+                 <  <=  >  >=
+							Operadores relacionales.
+                 = =    !=
+
+                 =  +=  -=  *=  /=  %=			Operadores de asignacion.
+
+	     (a + + , a - - )
+
+Cuando se hacen operaciones con operadores relacionales, siempre se devuelven valores 
+booleanos.
+
+		OPERADORES LOGICOS
+
+! not : es siempre el valor Booleano contrario de lo que se le indique.
+ b=true;
+!b seria false;
+&& and : Para que se cumpla los dos valores deben de ser true.
+|| or : Para que se cumpla solo una de las dos condiciones tiene que ser verdadera.
+
+Los operadores logicos tienen menos prioridad que los aritmeticos y los relacionales.
+Por ejemplo cuando tenemos una condicion || or , si una de las condiciones ya se cumple no  
+seguiria evaluando la otra ya que salga lo que salga va a ser true.
+Si queremos que evalue todas las condiciones en vez de poner || pondremos | y lo mismo 
+con && , si queremos que evalue todo pondremos &.
+
+		OPERADOR CONDICIONAL
+
+Evalua una expresion logica y dependiendo del resultado devuelve un valor.
+Int a =3;	Int maximo ; 
+int b=5; 
+maximo=(a>b)?a:b;
+Lo primero es la condicion , lo segundo es el valor que devuelve si la condicion se cumple 
+y lo tercero es el valor que devuelve si la condicion no se cumple.
+
+
+
+
+
+
+
+
+SENTENCIAS DE CONTROL DE FLUJO 
+
+-Condicional simple :
+Ejecuta sentencias en funcion de una condicion.
+
+If (condicion)
+{
+	Sentencia;
+}
+-Condicional doble :
+Es como el ejemplo de antes pero si no se cumple la condicion booleana se da otra 
+sentencia.
+If (condicion)
+{
+	Sentencia;
+}
+else
+{
+	Sentencia;
+}
+-Si despues del if o del else va una sola sentencia las llaves se pueden omitir.(No se 
+recomienda)
+
+-BUCLES
+Ejecutan una sentencia tantas veces como se desee.
+?Bucle “While”
+while (condicion booleana)
+    {
+	sentencia;
+    }
+Se puede poner una variable como contador y a partir de este repetir el bucle.
+Int i=0;
+while (i<10)
+    {
+	sentencia;		Repite la sentencia hasta i vale 10.
+	i++;
+    }
+Contador : Es una variable que incrementa en uno cada vez que se hace el bucle.
+Acumulador : Almacena la suma de una variable cada vez que pasa por el bucle.
+
+Int contador=1 , acumulador=0;
+while(contador<=100)
+{
+	if(contador%4==0)
+	{
+		acumulador+=contador;
+	}
+	contador++;
+}
+System.out.println(contador);
+
+Este programa hace la suma de todos los multiplos de 4 hasta llegar a 100.
+
+?Bucle “do...while”
+     Este bucle realiza una sentencia al menos una vez y la sigue haciendo hasta que deje de 
+cumplirse una condicion.
+
+Do 
+{
+	sentencia;
+}
+while(condicion);
+       El bucle “do...while ” es para cuando sepamos que la primera condicion es siempre 
+verdadera.
+
+?Bucle “for”
+Este bucle es el mas utilizado cuando se requiere contador.
+
+For(inicializa;condicion;actualiza)
+{
+	sentencia; // cuerpo
+}
+
+Las sentecias “break” y “continue” son muy utilizadas en los bucles.
+Break : Permite abandonar el bucle antes de que se rompa la condicion.
+Continue : Permite repetir un bucle sin haber terminado de ejecutar el cuerpo del bucle,
+tambien actualiza las variables.
+
+ARRAYS
+
+Conjunto de variables del mismo tipo a las cuales accedemos a traves de un indice.
+Los Arrays como todo en java empiezan a contar desde 0.
+
+g
+u
+i
+o
+n
+0	1	2	3	4   //Esto es un array de letras.
+
+Tipo [] altura;		//declaracion
+tipo altura[];		//Otra declaracion.
+altura=new tipo[7];	//Inicializacion (array de 7 elementos)
+ 
+Referencia
+                        
+g
+u
+i
+o
+n
+
+La refencia es una variable que contiene la direccion en memoria del vector.
+La referencia guarda la direccion de los Bytes que tienen la informacion .
+El vector siempre tiene sus bits con valor igual a 0 y si es booleano a false. 
+
+-Acceso :
+dias[3]=20;	//Sustituyes en el indice 3 el 0 por el 20.
+int [] a=new Int [7];	//Declaracion e inicializacion.
+
+Cuando se crea una referencia y se deja sin inicializar su valor es igual a “null”.	
+Int a[]=new int [3];
+a=null;   Al hacer esto se deja de apuntar al vector.
+Cuando esto pasa se ejecuta un subsistema de la maquina virtual (recoge basura) que            
+elimina al vector.
+ 
+Otra forma de inicializar es esta : int a[]={2,3,4,5};
+Se crea un vector con una longitud igual a 4.
+La longitud es una propiedad del vector. Se llamaria a esta asi “a.length” para este ejemplo.
+Si en algun caso nos pasamos del elemento del Array se produce una excepcion en tiempo 
+de ejecucion.
+Otra excepcion seria acceder a un Array que no esta inicializado (sin vector).
+
+ARRAYS MULTIDIMENSIONALES
+
+Existen Arrays bidimensionales , tridimensionales y como se quiera.
+1.Declaracion 	tipo [] [] nombre;
+2.Inicializacion 	nombre = new Int [4] [3];
+En este caso el 4 seria la fila y el 3 columna..
+3.Acceso 		nombre[3][2]=20;	//Escritura.
+Esto igualaria a 20 la casilla 3,2.
+Otra forma de inicializar un vector de este tipo es la siguiente.
+Int [][]nombre={{3,2,1},{5,7,9}};	//Por ejemplo.
+
+Con esto se crearia una referencia que apuntaria a un autovector que a su vez apuntaria al 
+vector con los datos que se guarda en memoria (RAM).
+Recordemos que en java siempre se cuenta desde 0 y por ejemplo el 2 seria :
+nombre[0][1]=2;
+
+1.int [][][]b=[4][2][3];
+En este caso el 4 seria la profundidad el 2 la fila y 3 la columna.
+Un array de este tipo crea una referencia que apunta a un autovector de longitud 4 que a 
+su vez apunta a otro autovector de longitud 2 que apunta a los vectores de longitud 3.
+
+En realidad no es que sean multidimensionales sino que son Arrays de Arrays.
+Debido a esto sse pueden crear Arrays irregulares.
+Int a[][]; 	//declaracion
+a=new Int [3][]; 	//Crea el autovector (fila)
+a[0]=new int[2]; 	//Crea el primer vector de longitud 2;
+a[1]=new int[4]; 	//Crea el segundo vector de longitud 4;
+a[2]=new int[3]; 	//Crea el tercer vector de longitud 3;
+
+Sin inicializar no se puede acceder a los vectores, y sin crear el autovector es lo mismo en 
+los multidimensionales , en los que tambien hay que crear el vector.
+En el momento que declaras las dimensiones de un Array no las puedes cambiar.
+En un Array multidimensional como en el caso de arriba a.length daria la longitud del 
+autovector.
+
+Pero a[0].length daria la longitud del vector 0.
+
+CONVERSIONES DE TIPOS EN JAVA
+
+En java entre diferentes tipos de datos , si se igualan se produce un error.
+Pero dentro de las variables de tipo numerico hay unas excepciones.
+Byte b=5;	i=b;//Corecto conversion implicita.
+int i=5;		b=i;//error
+En java se permiten los ensanchamientos pero no se permiten los estrechamientos.
+Byte(+127,-128)	int(2000000000,-2000000000)
+En el ejemplo java permite meter un byte en un int pero no lo contrario.
+b=i no lo hace porque i puede ser un numero mayor de los que acepta el byte.
+
+Casting o conversion explicita
+
+b=(byte)i; 	//correcto.conversion explicita. Fuerzas al programa a convertirlo.
+
+Int i=257;
+byte b=(byte)i; 	//Compila. Conversion explicita.
+
+Como el 257 no entra el rango de los admitidos por byte (se pasa) , al ejecutar :
+System.out.println(b); sale un numero cualquiera diferente , en el ejemplo se engaña al 
+compilador pero el programa nos saca un numero cualquiera.
+
+Char c='a';	//2bytes		char(0....+65000)
+short s=20;	//2bytes		short(-32768...+32762
+c=s;	//error
+s=c;	//error
+El programa no compilaria ya que char es solo positivo del 0 al 65000 y byte puede ser un 
+numero negativo .
+C=(char)s;	//correcto pero si le engañas saca un numero cualquiera.
+S=(short)c;	//correcto.
+Lo mismo ocurre entre el byte y el char.
+Si no le engañas y el literal es valido imprime la letra que se corresponda con el valor.
+
+Double d =7.1;		int i=5;
+i=d;//error			int i=(int)d;//correcto.d=7 en este caso
+?5l (long) (literal)
+byte b =5l;//error estrechamiento
+?5.0(double)
+double d=5.0;	//correcto
+float f=5.0;//error		float f=5.0f ;correcto
+
+Tecnica de programadores JAVA
+Divide y venceras
+Un problema grande se puede dividir en muchos pequeños.
+Funciones
+
+1.Modularidad
+En un programa al cual hemos dividido en subprogramas a cada uno de estos lo llamaremos 
+procedimiento.(p.e.dibujaLinea())
+Todos los procedimientos que creemos para un programa los podemos reutilizar las veces 
+que queramos.
+1.Implementacion		2.Llamada o ejecucion.
+Modularidad : Es agrupar los procedimientos en grupos a los que llamaremos modulos y 
+cada modulo resuelve una parte del programa.
+Es imprescindible la independencia entre modulos y la reutilizacion.
+Un modulo es una clase en la que agrupamos diferentes procedimientos que seran llamados 
+desde otra clase(no necesariamente).
+
+public static void nombre()
+{
+sentencias;		//Implementacion
+}
+El procedimiento main es el que llama a todos los demas procedimientos , java siempre 
+busca a main.
+Los procedimientos tienen void porque no devuelven nada.
+2.Procedimientos parametrizados
+Es cuando los parametros realizan una accion u otra según los parametros que les pasemos.
+Public static void dibujaLinea(int a)
+{
+int veces=a;
+for (int i=0;i<veces;i++)
+System.out.print(“-”);
+}
+En el ejemplo segun el parametro que le pases dibujara mas guiones o menos.
+Para llamar a un procedimiento que esta en la misma clase:
+nombre_procedimiento(parametros);
+si esta en otra clase:
+nombre_clase.nombre_procedimiento(parametros);
+Los parametros tienen tipo y nombre y por supuesto tiene que coincidir el tipo con las 
+variables que toman su valor dentro del procedimiento.
+
+3.Funciones
+Realiza un calculo en funcion de unos parametros y devuelve un resultado al que llamamos 
+retorno.
+Parametros----funcion----Retorno
+Parametros---Procedimiento
+public static tipo_retorno nombre(parametros)
+{
+return valor;
+}
+public static int suma(int a , int b)
+{
+int c=a+b;
+return c;
+}
+Ejemplo de llamada :
+public static void main (String[]args)
+{
+int a=2, b=3;
+int sol=suma(a,b);//llamada
+System.out.println(sol);
+}
+
+Otro ejemplo de funcion :
+
+public static boolean es_par(int a)
+{
+if(a%2==0)
+return true;
+else
+return false;
+}
+
+4.Funciones de Utilidad
+
+Funciones de Matematicas.
+
+?Public static double Math.abs(double a)---Devuelve el valor absoluto.
+?Public static double Math.floor(double a)---Redondea un numero hacia abajo.
+?Public static double Math.ceil(double a)---Redondea un numero hacia arriba.
+?Public static double Math.pow(double a,double b)---Eleva el 1º numero al 2º.
+?Public static double Math.sin(double a)---Calcula el seno de un numero.
+?Public static double Math.cos(double a)---Calcula el coseno de un numero.
+?Public static double Math.tang(double a)---Calcula la tangente de un numero.
+
+Funciones de Conversion
+
+?Public static int Integer.parseInt(String a)---Pasa a entero la cadena que recibe.
+?Public static double Double.parseDouble(String a)---Pasa a decimal la cadena que recibe.
+?Public static String String.valueOf(int i)---Pasa a cadena el entero que recibe.
+?Public static String String.valueOf(double i)---Pasa a cadena el decimal que recibe.
+?Public static String String.valueOf(char i)---Pasa a cadena el char que recibe.
+
+Las conversiones que son imposibles con casting se hacen de esta manera.
+
+
+
+
+
+Ambito de las variables.
+
+Parte del programa en el cual se utiliza una variable.
+?Ambito espacial : 		
+Partes del programa desde las cuales podemos acceder a una variable.
+?Ambito temporal: 		
+Son los momentos en los que la variable esta creada.(tiempo de vida)
+public class anno
+{
+	public static int edad=22;
+}
+
+Las variables que son de clase siempre se puede acceder a ellas y tambien desde otras 
+clases.
+
+Paso de parametros por valor :
+Consiste en que cuando pasamos un parametro real al formal se hace una copia de la 
+variable de forma que si la funcion modifica la variable modifica solo la copia y no el 
+origen.
+
+Paso de parametros por referencia :
+Aquí se pasan las variables originales
+
+1.Por valor se pasan los tipos de datos fundamentales (numericos y booleanos)
+2.Por referncia se pasan String , Array y objetos.
+En el caso de los parametros por referencia si en la funcion se cambia el String , array u 
+objeto , se cambia el original .
+
+Una variable que esta dentro de una funcion no puede ser llamada por otra funcion , ya que 
+su ambito temporal se acaba cuando termina de ejecutarse la funcion donde reside , cuando   
+termina su funcion podemos decir que se destruye. 
+
+El retorno por referencia :
+Consiste en que una variable creada por una funcion a la que hemos llamado sobrevive a la 
+terminacion de esa funcion gracias a que es retornada a la funcion que llama.
+
+
+Sobrecarga de funciones :
+Es crear varias funciones con el mismo nombre pero con distinto tipo o distinto numero de 
+parametros de forma que en la llamada el compilador decide que funcion ejecutar en 
+funcion de los parametros reales que pongamos en la llamada.
+En estos casos según los parametros decide el compilador y si se da la ocasión y puede 
+realiza conversiones implicitas.
+Esto se utiliza cuando una operación siempre tiene el mismo nombre pero diferente tipo de 
+parametros.
+
+Programacion orientada a objetos . . .
+Objeto :
+Elemento del mundo real que queremos representar en el ordenador.
+Atributo :
+Caracteristicas de los objetos que queremos cuantificar.
+
+Un objeto esta formado por atributos .
+-Generalizacion : Consiste en buscar las caracteristicas comunes de un conjunto de objetos 
+e ignorar las diferencias . Con esto obtenemos las plantillas que son una descripcion de las 
+caracteristicas comunes de conjuntos de objetos.
+
+Entre plantillas y objetos hay una relacion de instanciacion , a partir de una plantilla 
+sacamos los objetos que la cumplen.
+Cada caracteristica del objeto seria una instancia de cada plantilla.
+
+Entre plantilla y atributo hay una relacion de composicion
+De la plantilla al objeto es una instanciacion y del objeto a la plantilla es una 
+generalizacion.
+
+Para hacer las plantillas en Java se crea una clase.
+En java hay tres tipos de plantillas :
+ -Modulos con las funciones.
+ -Plantillas
+ -Mixtas
+		public class Fecha //clase plantilla
+		{		//Atributos
+			public int dia;
+			public int mes;
+			public int anno;
+		} 
+
+Las clases plantillas no utilizan el modificador “static” (forma de programacion 
+estructurada).
+Si tuvieran el “static” serian variables de clase (globales) y no atributos.
+
+Public class Prueba_Fecha // clase modulo
+{
+	public static void main(String []args)
+	{
+		Fecha F1;	//Crear la referencia
+		Fecha F2;
+		F1 =new Fecha (); 	//Instanciar los objetos y apuntar con las referencias
+		F2 =new Fecha ();	// inicialmente todo vale 0.
+		F1.dia=20;
+		F2.anno=2001;	//Acceso a los atributos.
+	}
+}
+
+F1 y F2 son las referencias a los objetos , no son los propios objetos . En este caso solo son 
+referencias de tipo Fecha.
+
+Podemos hacer F1.dia=F2.dia , pero si hacemos F1=F2, F1 deja de apuntar a su objeto y    
+apunta al objeto de la referencia F2.  F1 desaparece y si intentamos acceder a sus atributos 
+se producira una excepcion.
+
+LOS METODOS :
+
+Funciones que se ejecutan sobre los atributos de un determinado objeto .
+Los metodos son las cosas que pueden hacer los objetos
+Los metodos se ponen en la plantilla y no en el modulo , no llevan el parametro “static”.
+A los metodos se les llama de la siguiente forma :
+Nombre_objeto.Nombre_Metodo(parametros);
+
+this se utiliza para referirse al objeto sobre el que trabajamos.
+Los metodos son funciones que llevan asociadas el this.
+A this se le llama el parametro implicito.
+
+Es una referencia constante a su clase.
+Puede cambiar los atributos del objeto pero no puede cambiar nunca las referencias.
+
+CONSTRUCTORES :
+
+Es un metodo especial que se ejecuta justo despues de crear el objeto y cuya mision es        
+inicializarlo. Hay que crear un metodo cuyo nombre coincida con el nombre de la clase y 
+no tiene que tener ni retorno ni void.
+
+Public class punto   //Clase plantilla
+{
+	int x;
+	int y,
+	public Punto(int x, int y)
+	{
+	this.x=x;
+	this.y=y;
+	}
+}
+
+Para crear el objeto hacemos lo siguiente :
+Punto p = new Punto (2,3);
+Java permite que el constructor este sobrecargado.
+
+Public class punto   //Clase plantilla
+{
+	int x;
+	int y,
+	public Punto(int x, int y)
+	{
+	this.x=x;
+	this.y=y;
+	}
+ 	public Punto()
+	{
+	this.x=1;
+	this.y=1;}}
+
+Punto p = new Punto();
+En este caso el compilador utilizaria el 2º constructor ya que no se le pasan parametros.
+
+Constructor por defecto es el que no recibe parametros.
+Constructor general es el que recibe parametros.
+Si creamos una clase sin constructores el compilador le pone un constructor que se llama 
+constructor por defecto ficticio.
+Este no hace nada y solo sirve para poder crear el objeto.
+Sin embargo si ponemos un constructor general en una clase el compilador no pone el suyo 
+por defecto , con lo que nos obliga en este caso a pasar por obligacion parametros a no ser 
+que tengamos un constructor como el de arriba que no necesita parametros.
+
+Si en el ejemplo anterior no tubieramos el 2º constructor:
+Punto p=new Punto(); 	//Daria un error.
+
+En java los constructores pueden llamar a otros constructores.
+
+Public class Punto 
+{
+	public int x;
+	public int y;
+	public Punto (int x ,int y)
+	{
+	this.x=x;
+	this.y=y;
+	}
+	public Punto(int xy)
+	{
+	this(xy , xy)		//Llama al primer constructor.
+	}
+	public Punto()
+	{
+	this(-1);		//Llama al segundo constructor.
+	}
+}
+
+Si no pasas parametros el punto queda con coordenadas (-1,-1)
+Si pasas un parametro queda (parametro , parametro)
+Si pasas dos (parametro 1 , parametro 2)
+
+AGREGACION Y COMPOSICION
+
+Son relaciones entre objetos donde un objeto de un tipo se relaciona con otros de otro tipo.
+
+AGREGACION :
+Consiste en que un objeto contenedor tiene referencias a otros objetos a los que llamamos 
+objetos contenido, de forma que la vida de los objetos contenidos no esta limitada a la del 
+contenedor.
+
+Public class Segmento
+{
+	public Punto desde;
+	public Punto hasta;
+	public Segmento(Punto P1,Punto P2)
+	{
+	this.desde=P1;
+	this.hasta=P2;
+	}
+}
+
+
+
+
+
+public class PruebaSegmento
+[
+	public static void main (String[]args)
+	{
+		Punto P1=new Punto(2,3);
+		Punto P2=new Punto(8,4);
+		Segmento s=new Segmento(P1,P2);
+	}
+}
+
+desde y hasta son referencias al objeto punto , son los contenedores de los objetos 
+contenidos.
+Los objetos contenidos son los puntos y de no existir el segmento los puntos seguirian 
+existiendo.
+
+COMPOSICION :
+
+Consiste en que un objeto ( contenedor ) esta formado por objetos de otra clase a los que 
+llamamos objetos contenidos de forma que estos se crean y destruyen al crear y destruir el 
+contenedor .
+Esta relacion se puede emular pero no la soporta JAVA.
+
+Public class Segmento
+{
+	public Punto desde=new Punto ();
+	public Punto hasta=new Punto();
+	public Segmento(int x1, int y1, int x2, int y2)
+	{
+	this.desde.x=x1;
+	this.desde.y=y1
+	this.hasta.x=x2;
+	this.hasta.y=y2;
+	}
+}
+Segmento s = new Segmento (2,3,8,1);
+
+A los objetos punto solo les apunta el segmento , entonces si desaparece el segmento 
+desaparecen los puntos.
+
+
+LA CLASE STRING
+
+String en realidad no es un tipo de variable , sino una clase.
+String (char[]buffer);	//Prototipo.
+Esto pasa a String un Array de caracteres.
+Char []letras={'h','o','l','a'};
+String str = new String (letras);
+Los objetos String son constantes , no se pueden modificar.
+Cuando se cambia una variable String la referencia es constante pero se sustituye el objeto , 
+no se modifica.
+
+
+String como metodos tiene :
+-int (String).length()		//Devuelve la longitud de un String.
+-char (String).charAt(int Index)		//Devuelve el carácter que pongas en el param.
+						//char []array=sring .tocharArray()//Contrario.
+String mensaje=”BUENAS”;
+char[]letras=new char [mensaje.length()];
+for (int i =0;i<letras.length;i++)
+letras[i]=mensaje.charAt[i];
+
+No hay que confundir entre la propiedad del Array length y el metodo de la clase string      
+length().
+String str1=”hola”;
+String str2=”hola”;
+if (str1==str2)//Nunca se cumple.
+Esto lo que hace es comprobar las referencias y claro, son referencias diferentes.
+String str1=”hola”;
+String str2=str1;
+En este caso si se cumpliria.
+Boolean <String>equals(String str)
+Devuelve un valor booleano comparando los objetos y no las referencias.
+If(str1.equals(str2))		//En este caso se cumple.
+
+Boolean <String>equalsIgnoreCase(String str)
+Hace lo mismo pero sin tener en cuenta las palabras mayusculas.
+
+Metodos para buscar dentro de un Array : (si no encuentra devuelve -1.)
+int <String> indexOf(char ch)
+int <String> indexOf(char ch,int from)
+int <String> indexOf(String substring)
+int <String> indexOf(String substring,int from)
+
+String frase =”Las palabras son eso” 
+int pos=frase.indexOf(' ');
+while(pos!=-1)
+{
+	System.out.println(“Espacio en ”+pos);
+	pos=frase.indexOf(' ',pos+1);
+}
+
+string <String> substring(int from , int to) //El primero se incluye pero el segundo no es 
+incluido.
+String frase =”Las palabras son eso”
+int pos=frase.indexOf(' ');
+int pos_anterior=-1;
+while(pos!=-1)
+{
+	System.out.println(frase.subString(pos_anterior+1,pos));
+	pos_anterior=pos;
+	pos=frase.indexOf(' ',pos+1);
+}
+
+
+-String<String> toUpperCase()
+-String<String> toLowerCase()
+Estos metodos crean nuevos objetos cambiando las mayusculas según convenga.
+
+
+STRINGBUFFER
+
+Crea textos que una vez creados se puedan modificar.
+StringBuffer(String str);
+String ahorcado=”murcielago”;
+StringBuffer buffer=new StringBuffer(ahorcado);
+StringBuffer buffer=new StringBuffer(“murcielago”);
+Tiene el metodo charAt;
+char <StringBuffer>charAt(int index,char ch(este opcional));
+String<StringBuffer>toString();Lo pasa a String;
+void <StringBuffer>append(String str);
+Añade un texto al final del StringBuffer.
+
+LA CLASE SYSTEM
+
+Es una clase modulo, no se puede instanciar.
+
+Public class System
+{
+	public static PrintStream out;
+	public static PrintStream err;
+	publis satatic PrintStream in;
+}
+Son variables de clase o globales. Las variables de clase o globales llevan el static.
+Estas variables representan la entrada y la salida estandar , que son el teclado de entrada y 
+el monitor de salida.
+Println es un metodo del objeto out.
+-static long <system>currentTimeMillis();
+Este metodo da la fecha y la hora del sistema pero lo da calculando el numero de 
+milisegundos transcurridos desde el uno de enero de 1970.
+
+Leer texto de la consola.
+Import java.io.*;
+BufferedReader teclado=new BufferedReader(new InputStreamReader(System in));
+String linea=teclado.readLine();
+Recoge el texto que metamos hasta el intro , lo toma como String.
+En el metodo que lo utilice ya sea main o no , se pone “throws Exception”
+
+Si utilizamos este metodo para que el usuario meta una opcion de numeros despues para 
+escoger la funcion segun el numero podemos utilizar switch.
+Es como un if pero aquí se listan todas las opciones , poniendo al final default para numero 
+s que no sean opciones.
+switch (opcion)
+{
+	Case  1:	funcion();
+			break;
+	Case 2:	funcion2();
+			break;
+	default:	System.out.print(“Opcion no valida”);
+}
+
+HERENCIA
+
+Es una caracteristica de la programacion orientada a objetos que tiene dos objetivos.
+La reutilizacion y la clasificacion.
+
+-Reutilizacion :
+Consiste en disponer de librerias de clases ya hechas con la funcionalidad basica de unos 
+objetos a los cuales el programador puede añadir mas funcionalidad si quiere.
+
+Por ejemplo la clase ya hecha Window podemos reutilizarla en la clase ventana.
+Clase base -----Window (superclase)
+Clase derivada-----Ventana (subclase)
+public class Ventana extends Window
+{
+	public int getColor()
+	{
+	}
+	public void setColor()
+	{
+	}
+}
+
+-Clasificacion :
+Consiste en recoger la funcionalidad comun de un conjunto de clases bajo una clase base.
+
+Public class Punto 
+{
+	public int x;
+	public int y;
+	public int color;
+	public Punto(int x,int y,int color)
+	{
+		this.x=x;
+		this.y=y;
+		this.color=color;
+	}
+	public int getVertices()
+	{
+		return 1;
+	}
+	public int getColor()
+	{
+		int c=this.color;
+		return c;
+	}
+
+	public void setColor(int c)
+	{
+		this.color=c;
+	}
+}
+
+Public class Segmento
+{
+	public Punto desde;
+	public Punto hasta;
+	public int color;
+	public Segmento(Punto p1,Punto p2,int color)
+	{
+		this.desde=p1;
+		this.hasta=p2;
+		this.color=color;
+	}
+	public int getVertices()
+	{
+		return 2;
+	}
+	public int getColor()
+	{
+		int c=this.color;
+		return c;
+	}
+
+	public void setColor(int c)
+	{
+		this.color=c;
+	}
+}
+
+Public class Triangulo
+{
+	public Punto p1;
+	public Punto p2;
+	public Punto p3;
+	public int color;
+	public Triangulo(Punto p1,Punto p2,Punto p3,int color)
+	{
+		this.p1=p1;
+		this.p2=p2;
+		this.p3=p3;
+		this.color=color;
+	}
+	public int getVertices()
+	{
+		return 3;
+	}
+	public int getColor()
+	{
+		int c=this.color;
+		return c;
+	}
+
+	public void setColor(int c)
+	{
+		this.color=c;
+	}
+}
+
+Diagrama UML (Unified Modeling Language)
+
+Sirve para representar todas las clases.
+Define en una especie de grafico los atributos y los metodos de cada clase.
+(podemos ver el rafico de estas tres clases en el cuaderno de apuntes)
+
+De este grafico podemos deducir una generalizacion de clases ,y sacar una clase base.
+Clases -------Clase base  	//Generalizacion
+
+public class Figura //Clase base
+{
+	public int color;
+	public int vertices;
+	public int getVertices()
+	{
+		return this.vertices();
+	}
+	public int getColor()
+	{
+		return this.color;
+	}
+	public void setColor(int c)
+	{
+		this.color=c;
+	}
+}
+
+Esta clase seria la clase base de la que derivan las clases de antes , que quedarian de la 
+siguiente forma.
+Public class Punto extends Figura
+{
+	public int x;
+	public int y;
+	public Punto(int x ,int y,int c)
+	{
+	this.x=x;
+	this.y=y;
+	this.vertices=1;
+	this.color=c;
+	}
+}//Fin clase
+
+Como vemos en los atributos no esta el color , ya que ese atributo lo hereda de figura, en el 
+constructor se añade vertices ya que tambien lo hereda de figura.
+En la clase base se añadio como atributo vertices ya que para clase era un valor constante y 
+se podia poner como atributo.
+Este paso es simplemente de logica , ya que setColor y getColor son completamente iguales 
+y se ponen en la clase base pero getVertices era diferente para cada clase entonces del 
+modo en que lo hemos hecho creamos un atributo vertices para todas las clases de forma 
+que en el constructor inicializa vertices y asi podemos llamar al metodo getVertices.
+Otra forma pero peor hubiera sido crear una funcion getVertices para cada clase.
+
+Public class Segmento extends Figura
+{
+	public Punto desde ;
+	public Punto hasta;
+	public Segmento(Punto desde,Punto hasta,int color)
+	{
+		this.desde=desde;
+		this.hasta=hasta;
+		this.color=color;
+		this.vertices=2;
+	}
+}
+
+Public class Triangulo extends Figura
+{
+	public Punto p1 ;
+	public Punto p2;
+	public Punto p3 ;
+	public Segmento(Punto p1,Punto p2,Punto p3,int color)
+	{
+		this.p1=p1;
+		this.p2=p2;
+		this.p3=p3;
+		this.color=color;
+		this.vertices=3;
+	}
+}
+
+Asi quedarian las clases despues de derivarlas de la clase figura.
+Estas tres clases tienen las funciones de la clase figura.
+
+Mecanismos de Reutilizacion en POO
+
+-Composicion : Segmento formado por dos puntos.
+-Herencia : ventana -- Window
+La composicion es una relacion entre objetos mientras que la herencia es una relacion es 
+una relacion entre clases .
+La composicion es una relacion de tipo Has-A mientras que la herencia es un tipo de Is-a.
+Un objeto contenedor tiene varios objetos contenidos mientras que un punto es una figura 
+(entendamos el ejemplo, la clase punto entra dentro de figura o sea que un punto es una 
+figura)
+
+En la composicion un objeto contenedor esta formado por varios objetos contenidos y en la 
+herencia una clase solo puede derivar de una clase base  , aunque puede haber varias clases 
+que deriven de ella.
+
+Metodos Heredados , Añadidos Y Redefinidos
+
+Rectangulo -- Is a -- Cuadrilatero
+
+public class Cuadrilatero
+{
+	Public punto[]vertices =new Punto[4];
+	public Cuadrilatero(Punto p1,p2,p3,p4)
+	{
+		vertices[0]=p1;
+		verrices[1]=p2;
+		vertices[2]=p3;
+		vertices[3]=p4;
+	}
+	public double longitudLado(int i)
+	{
+		if(i==3)
+		return vertices[3].distanciaA(vertices[0]);//distanciaA es un metodo de la 	
+	else					      //clase punto, por eso lo podemos 	
+	return vertices[i].distaciaA(vertices[i+1]); //utilizar.
+	}
+	public double perimetro()
+	{	
+		double p=0.0;
+		for(int i=0;i<4;i++)
+		p+=longitudLado[i];
+		return p;
+	}
+	public boolean regular()
+	{
+		double lado=longitudlado(0);
+		for(int i=0;i<4;i++)
+		{
+			if(lado!=longitudLado(i))
+			return false;
+		}
+		return true;
+	}
+} 
+
+public class Rectangulo extends Cuadrilatero
+{
+	public Rectangulo(Punto p,int ladoH,int ladoV)
+	{
+		vertices[0]=p;
+		vertices[1]=new Punto(p.x+ladoH,p.y);
+		vertices[2]=new Punto(p.x+ladoH,p.y+ladoV);
+		vertices[3]=new Punto(p.x,p.y+ladoV)
+	}
+	public double perimetro()
+	{
+		double l0=longitudLado(0);
+		double l1=longitudLado(1);
+		return 2*(l0+l1);
+	}
+	public double area()
+	{
+		return longitudLado(0)*longirudLado(1);
+	}
+	public boolean regular()
+	{
+		return (longitudLado(0)==longitudLado(1));
+	}
+}
+
+Llamamos metodo heredado a un metodo que existe en la clase base y que ha heredado una 
+clase derivada.
+
+Llamamos metodo redefinido a un metodo que existe en la clase base y que ha vuelto a 
+definir la clase derivada.
+
+Llamamos metodo añadido a un metodo que no existia en la clase base y que si existe en la 
+clase derivada.
+
+El especificador SUPER  
+Para referirse a miembros de la clase base desde la derivada..
+
+1.Para referirse a metodos de la clase base que hayan sido redefinidos en la derivada.
+
+public class Pixel extends Punto
+{
+	public int color;
+	public Pixel(int x , int y , in color)
+	{
+		this.x=x;
+		this.y=y;
+		this.color=color;
+	}
+	public String aCadena()
+	{
+		return (super.aCadena()+”Color :”+color);
+	}
+}
+
+super.super.aCadena();	//Error de compilacion;
+
+Solo se puede acceder a tu base pero no a la base de tu base.
+
+
+
+Super al igual que this solo se puede usar desde dentro de la clase , esto solo se usa cuando 
+los metodos son redefinidos
+
+-Para acceder a atributos que hayamos añadido en la derivada con el mismo nombre que en 
+la base.
+Los atributos a diferencia de los metodos no se redefinen , se añaden.
+
+Public class base
+{
+	public int a;
+	public void SetA(int a)
+	{
+		this.a=a;
+	}
+}
+
+public class derivada extends base
+{
+	public int a;
+	public void SetA(int a)
+	{
+		this.a=a;
+	}
+}
+
+base b=new base();
+derivada d=new derivada();
+ 
+b.a=3;
+d.a=3;		//Pero d el vector de d apunta a dos posibilidades una se queda con 3(el de d)
+		//y otra se queda con 0 el de la base.
+
+b------a		d------aa (el de la base y el suyo)
+
+d.super.a=3;		//Error de compilacion
+b.SetA(3);		//El de la base
+d.SetA(3);		//El de la derivada 0 y 3.
+
+public class derivada extends base
+{
+	public int a;
+	public void SetA(int a)
+	{
+		this.a=a;
+	}
+	public void SetsuperA(int a)
+	{
+		super.a=a;
+	}
+}
+
+
+derivada d=new derivada();
+d.SetA(3);
+d.SetsuperA(2);		d------2  3  (El de la base y el de la derivada)
+
+Constructores de la clase base
+
+Cuando llamamos al constructor de una derivada primero se ejecuta el constructor por 
+defecto de la clase base y luego el constructor que hayamos derivado de la clase derivada.
+Para evitar esto podemos utilizar super.
+Public pixel(int x,int y,int color)
+{
+	super(x,y);
+	this.color=color;
+}
+si hacemos un constructor de pixel sin super y punto solo tiene un constructor general da un 
+error ya que según la regla de arriba pixel llama a un constructor por defecto de punto y no 
+lo encuentra.
+Para evitarlo tenemos que usar super con sus parametros para buscar el general.
+
+En el caso de los constructores super no va seguido del nombre del metodo, pero si fuera 
+otro metodo que no fuera el constructor seria super.metodo() , pero al constructor de la base 
+siempre se le llama desde el constructor de la derivada. Hay que tener en cuenta que a los 
+constructores nunca se les llama , se ejecutan solos al crear el objeto.
+
+Conversion implicita y explicita entre referencias a objetos
+
+Fecha F=new Fecha (20,7,2001);
+Punto P=new Punto(8,3);
+P=F;		//Error de compilacion
+P=(Punto) F;		//Error
+sin embargo hay ocasiones donde es posible la conversion de referencias pero nunca de 
+objetos.
+1.Java convierte implicitamente referencias a clase derivada en referencias a clase base.
+Punto P=new Punto(2,3);
+Pixel px=new Pixel(8,1,3);
+P=px;
+Esto seria correcto seria una conversion implicita , P deja de apuntar a su objeto y apunta al 
+objeto de px pero sigue siendo una referencia de punto.
+Una referencia de tipo base puede apuntar a un objeto de tipo derivada pero una referencia 
+de tipo derivada no puede apuntar a un objeto de tipo base.
+Sin embargo al hacer la conversion implicita la referencia de tipo base no puede acceder a 
+todos los atributos del objeto de la clase derivada.
+P.x=3;		//Correcto
+P.y=3;		//Correcto
+P.color=8;	//Error compilacion
+
+2.Java convierte referencias a clase base en referencias a clase derivada explicitamente.
+Punto P=new Punto(2,3);
+Pixel px=new Pixel(8,1,3);
+P=px;	//Conversion implicita
+
+En este caso si perdieramos la referencia px nunca mas podriamos acceder al color del 
+objeto.
+P.color=5;		//Error compilacion
+Si tubieramos otro objeto de tipo pixel con su referencia px2 podriamos hacer :
+px2=(Pixel)P;		//Conversion explicita.
+Px2.color=5;		//Correcto.
+
+-Esto es la base del polimorfismo.
+Cuando realizamos una conversion de referencia a clase base en referencia a clase derivada 
+java comprueba :
+	1.En tiempo de compilacion nos pide una conversion explicita o casting.
+	2.En tiempo de ejecucion la maquina virtual comprueba que el objeto al que vamos 
+	   a apuntar con la referencia a derivada sea del tipo de la referencia o bien de un 	   
+tipo derivado del de la referencia y si esto no se cumple una excepcion 	   	   
+ClassCastException.
+Punto p=new Pixel (2,3,4);
+Pixel px=(Pixel)p;	//Pasa la comprobacion.
+
+Punto p=new Punto(2,3);
+Pixel px=(Pixel)p;		//Compila correctamente.
+Pero en tiempo de ejecucion px al apuntar a un punto y no a un pixel o a una derivada de 
+pixel produce una excepcion en tiempo de ejecucion.
+En java la referencia tiene que ser menor o igual que el objeto al que apunta.
+Con un punto podemos apuntar a un pixel pero con un pixel no a un punto.
+
+Enlace estatico y dinamico.
+
+Public class Base 
+{
+	public void metodo1()
+	{
+		System.out.println(“Viva la base”);
+	}
+}
+Public class Derivada extends Base
+{
+	public void metodo1()
+	{
+		System.out.println(“Viva la derivada”);
+	}
+}
+
+Base b=new Base();
+Derivada d=new Derivada();
+b.metodo1();		//El de la base
+d.metodo1();		//El de la derivada
+Base b=new Derivada();
+b.metodo1();		//¿Cual se ejecuta?
+Esta decision depende de si es enlace estatico o dinamico.
+
+Si se usa enlace estatico el metodo a ejecutar se decide en funcion del tipo de la referencia y 
+en consecuencia en el ejemplo se ejecutaria el de la base.
+Si se usa enlace dinamico el metodo a ejecutar se decide en funcion del tipo del objeto y asi 
+en el ejemplo se ejecutaria el de la derivada..
+
+En C++ por defecto el enlace es estatico y para usar enlace dinamico se utiliza el 
+modificador virtual
+En Java por defecto se usa enlace dinamico y si queremos usar el enlace estatico se utiliza 
+el modificador final.
+
+
+ESTATICO :
+Es mas rapido ya que en compilacion el compilador ya sabe el metodo a ejecutar ya que 
+este siempre sabe el tipo de la referencia aunque no sabe el tipo de los objetos.
+Base b;
+if (loquesea)
+b=new Base();
+else
+b=new derivada();
+b.metodo1();
+Aquí si fuera C++ (estatico) el compilador sabe que el metodo a ejecutar sera siempre el de 
+la base ya que la referencia pase lo que pase es siempre de base.
+
+DINAMICO :
+Normalmente interesa que sea dinamico pero es mas lento.
+
+La clase Object y el operador instanceOf
+
+De esta clase derivan todas las clases cuando no indicamos otra derivacion .
+Public String <Object> toString()
+Devuelve una representacion textual del objeto, todos los objetos tienen el metodo toString 
+y si lo ejecutamos sobre objetos devuelve la direccion en memoria del objeto en 
+hexadecimal. , pero se puede redefinir.
+public class Punto
+{
+	public int x;
+	public int y;
+	public Punto(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+
+	public String toString()
+	{
+		return “[”+this.x+”,”+this.y+”]”;
+	}
+}
+Ahora si ejecutamos el toString en punto y sus derivadas (redefiniendo el atributo que falte) 
+nos devuelve eso.
+Tambien si println recibe un objeto ejecuta siempre el toString del objeto , pero no en 
+variables.
+toString es un procedimiento de la clase Object..
+public boolean <Object> equals(Object other)
+Nos dice si un objeto String es igual a otro String que le pasamos como referencia y si no es 
+String lo que hace es comparar las referencias de memoria para ver si son iguales los 
+objetos.
+Punto P1=new Punto(2,2);
+Punto P2=P1;
+Punto P3=new Punto(2,2);
+if (P1.equals(P2));	//Se cumple
+if (P1.equals(P3));	//No se cumple
+En este caso seria lo mismo que == , por eso ese metodo no se suele redefinir en la clase 
+derivada para comparar objetos.
+El == lo que hace tambien es comparar referencias.
+En la clase String esta redefinido para comparar objetos y no las referencias.
+En la clase Punto podriamos redefinir el metodo toString para que comparase los puntos y 
+no las referencias..
+public boolean equals (Punto P2)
+{
+	return (this.x==P2.x && this.y==P2.y);
+}
+
+En este caso el metodo mas que redefinido esta sobrecargado ya que el parametro que le 
+pasamos no es object sino Punto.
+Este tipo de metodos son metodos interpuestos.
+Punto p=new Punto(2,3);
+Punto p2=new Punto(2,3);
+Pixel px=new Pixel(2,3,4);
+Fecha f=nnew Fecha (20,7,2000);
+if(p.equals(P2));		//Se ejecuta el equals de punto
+if(p.equals(f));		//Se ejecuta el equals de Object
+if(p.equals(px));		//Se ejecuta el equals de Punto porque pixel es derivado de 
+				//punto.
+Esto es valido ya que pixel al ser derivada tiene todos los atributos de punto.
+If(px.equals(p));		//se ejecuta el de punto porque pixel hereda el metodo.
+
+FUNCIONES GENERICAS :
+Son funciones que pueden recibir cualquier objeto como parametro .
+Public static void imprime(Object Obj)
+{
+	System.out.println(Obj.toString);
+}
+En el ejemplo Object no puede acceder a los atributos del objeto pero por el enlace 
+dinamico se ejecuta el toString del objeto que le pasemos que como estaria redefinido en la 
+clase del objeto , imprime sus caracteristicas.
+
+InstanceOf : Es un operador que sirve para preguntar de que clase es un objeto.
+Punto p=new Punto(2,3);
+Pixel px=new Pixel (2,3,4);
+
+
+if(p instanceOf Punto);		//Se cumple
+if(px instanceOf Punto);		//Se cumple por la relacion de herencia de tipo Is-a.
+El pixel es un tipo de punto.
+If(p instanceOf Pixel);		//No se cumple.
+If(((pixel)p) instanceOf Pixel);	//No se cumple ya que instanceOf se fija en los objetos 
+					//pero no en las referencias.
+P=new Pixel(2,3,8);
+if (p instanceOf Pixel);		//Se cumple ya que comparas Pixeles.
+La referencia solo se usa para acceder a los atributos , aquí no podriamos acceder al color 
+porque la referencia de p es un punto y no tiene color.
+If (p instanceOf Fecha);		//No se cumple.
+
+Asi en una clase podriamos hacer metodos que según el objeto que pasemos averiguandolo 
+con instanceOf hicieran unas cosas u otras , pasando como parametro (Object obj).
+
+EL MODIFICADOR DE TIPO FINAL : 
+
+1.En atributos:
+	Significa que el atributo es constante.
+Public class Fecha
+{
+	public int dia,mes,anno;
+	public final int diaSemana=7;
+	public final int diaMes[]={1......31};
+}
+
+Fecha F=new Fecha();
+System.out.println(F.diaSemana);		//Correcto;
+f.diaSemana=9;				//Error;
+F.diaMes[4]=32;				//Correcto;
+Es correcto porque hace constante a la referencia no al vector.(En java no se puede hacer 
+constante un vector)
+F.diaMes=new int[12];			///Error;
+Las constantes en JAVA se suelen poner todas en mayusculas separadas con un guion bajo.
+Public class Menu
+{
+	public final int ARCHIVO_NUEVO=1;
+}
+
+if(opcion==Menu.ARCHIVO_NUEVO)		//Error;
+
+Menu m=new menu();
+if(opcion==m.ARCHIVO_NUEVO)		//Correcto
+Para acceder a las constantes hay primero que crear el objeto.
+Si ponemos static deja de ser un atributo y se hace variable de clase.
+public static final int ARCHIVO_NUEVO=1;
+if(opcion==Menu.ARCHIVO_NUEVO)		//Correcto
+
+2.Final en los metodos
+public class poligono
+{
+	int lado;
+public int lados()
+
+
+	{
+		return lado;
+	}
+}
+
+public class Cuadrilatero extends Poligono
+{
+	public final int lados()
+	{
+		return 4;
+	}
+}
+En este caso se utiliza el enlace estatico.
+
+3.Final en las clases
+public final class Pixel
+No se pueden crear clases que deriven de esta.
+Si la clase es final todos sus metodos son finales (no los atributos), una clase final mejora 
+su rendimiento.
+
+-El metodo finalize()
+
+Sirve para poner operaciones que queramos que se ejecuten al final de la vida de un objeto.
+
+Protected void <object> finalize ()throws exception 
+las derivadas pueden redefinir el metodo.
+Public class Fichero
+{
+	protected void finalize()throws exception
+	{
+		close();
+		super.finalize();
+	}
+}
+Se llama siempre despues al de la base.
+Este metodo lo ejecuta la maquina virtual cuando pasa la recogida de basura.
+Public class Punto		//Clase mixta
+{
+	public int x,y;
+	public static int nPuntos=0;
+	public Punto(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+		nPuntos ++;
+	}
+	protected void finalize()throws Exception
+	{
+		nPuntos--;
+		super.finalize();
+	}
+}
+En este ejemplo creamos objetos puntos y cada vez que creamos aumenta en uno la  
+variable de clase pero cuando uno desaparece se ejecuta el finalize() y resta uno sabiendo 
+siempre cuantos puntos tenemos.
+
+LOS NEXOS DINAMICOS
+
+Es un conjunto de objetos que comparten una serie de caracteristicas comunes aunque 
+luego los objetos tienen otras caracteristicas que no forman parte del nexo dinamico.
+Un ejemplo es el escritorio de windows.
+Public class casilla
+{
+	public int fila,columna;
+	public casilla(int fila,int columna)
+	{
+		this.fila=fila;
+		this.columna=columna;
+	}
+	pulic String toString()
+	{
+		return “[”+fila+”,”+columna+”]”;
+	}
+}
+
+public class Figura extends Casilla
+{
+	public int color;
+	public figura(int fila,int columna,int color)
+	{	
+		super(fila,columna);
+		this.color=color;
+	}
+	public boolean puedeMoverA(Casilla donde)
+	{
+		return false;
+	}
+	public boolean estaAtacadaPor(Figura otra)
+	{
+		if(otra.puedeMoverA(this))	//Se puede porque figura deriva de casilla
+		return true;
+		else
+		return false;
+	}
+}
+
+
+Aquí ponemos el metodo puedeMoverA ya que si no no compilaria , aunque luego cada 
+figura lo redefina.
+
+
+
+
+Public class Torre extends Figura
+{
+	public Torre(int f,int c,int color)
+	{
+		super(f,c,color)
+	}
+	public boolean puedeMoverA(Casilla donde)
+	{
+		//Lo que corresponda
+	}
+	public String toString()
+	{	
+		return “Torre”+super.toString()+”Color:”+color;
+	}
+}
+
+Public class Rey extends Figura
+{
+	public Rey(int f,int c,int color)
+	{
+		super(f,c,color)
+	}
+	public boolean puedeMoverA(Casilla donde)
+	{
+		//Lo que corresponda
+	}
+	public String toString()
+	{	
+		return “Rey”+super.toString()+”Color:”+color;
+	}
+	public boolean estaEnJaque()
+	{
+		//Lo que corresponda.	
+	}
+}
+El toString que se ejecuta es el toString de casilla.
+
+Figura blancas[]=new Figura[16];
+blancas[0]=new Torre(0,0,0);
+blancas[1]=new Caballo(0,1,0);
+blancas[2]=new Alfil(0,2,0);
+blancas[4]=new Rey(0,4,0);
+
+-blancas[0].toString();	//El de la torre.
+   blancas[4].puedeMoverA();		//Se ejecuta el del Rey
+   blancas[4].estaEnJaque();			//Error de compilacion
+La referencia es de tipo casilla entonces no puede acceder a ese metodo ya que ese metodo 
+es solo de la clase Rey.
+
+
+
+
+Rey r;
+r=(Rey)blancas[4];
+r.estaEnJaque();		//Correcto
+Tambien podria ser:
+((Rey)blancas[4]).estaEnJaque();
+Sin embargo,
+((Rey)blancas[0]).estaEnJaque();
+En tiempo de ejecucion daria una excepcion ya que el objeto al que apunta no es de tipo 
+rey.
+
+Casilla[][] casillas=new Casilla[8][8];
+Casillas [0][0] =new Torre(0,0,0);
+Casillas [4][0] =new Casilla(4,0);
+Casillas [7][7] =new Torre(7,7,1);
+
+Casillas[0][0].toString();		// Se ejecuta el de la torre
+Casillas[0][0].puedeMoverA();	//Error la referencia no puede acceder.
+((Torre)casillas[0][0]).puedeMoverA();	//El de la torre
+((Figura)casillas[0][0]).puedeMoverA();	//El de la torre
+((Caballo)casillas[0][0]).puedeMoverA();	//Error en ejecucion el objeto no es un caballo.
+
+Los bloques estáticos
+
+Es un conjunto de instrucciones que se ejecutan justo cuando la maquina virtual carga una 
+clase en memoria.
+Se utiliza para inicializar atributos estaticos.
+
+Public class Fecha 
+{
+	public int dia,mes,anno;
+	public static int diaHoy,mesHoy,annoHoy;
+	static{	//Bloque estatico
+		diaHoy=Date.getCurrentDay();
+		mesHoy=Date.getCurrentMonth();
+		annoHoy=Date.getCurrentYear();
+	         }
+}
+
+Las variables de clase las inicializa el bloque estatico.
+
+Las clases Abstractas
+
+Son clases plantilla , pero no estan pensadas para ser instanciadas sino que sirven de base 
+para otras clases.
+Por ejemplo la clase figura del ejemplo de ajedrez , ya que no vamos a crear objetos figura.
+
+
+
+
+Public abstract class Figura
+{
+
+}
+Casilla c=new Casilla();
+Figura f=new Figura();		//Error de compilacion
+
+Pueden tener metodos abstractos que son metodos que estan sin implementar.
+Public abstract class Figura extends Casilla
+{
+	public boolean estaAtacadaPor(Figura otra)
+	{
+		if (otra.puedeMoverA(this))
+		return true;
+		else
+		return false;
+	}
+	public abstract boolean puedeMoverA(Casilla donde);
+}
+
+Definen operaciones en la base que deben de implementar todas las derivadas.
+Si una clase deriva de otra que tiene metodos abstractos tiene que implementarlos o 
+declararse a si misma como abstracta.
+
+Si una clase tiene metodos abstractos tiene que declararse como abstracta , pero una clase 
+puede ser abstracta aunque no tenga metodos abstractos.
+Aunque no se pueden instanciar estas clases se puede crear referencias con ellas.
+
+Figura F;		//Correcto
+F=new Figura();	//Error
+F=new Torre();	//Correcto
+F.puedeMoverA();	//El de la torre.
+Solo se la pueden definir constructores que pueden ser utilizados por las derivadas 
+utilizando super.
+
+Paquetes , encapsulacion e interfaces
+
+1.Paquetes
+Para evitar conflictos de nombres entre clases que tengan iguales atributos y variables de 
+clase, en principio con poner el nombre de la clase o del objeto delante es suficiente pero 
+por ejemplo la clase connection es doble(hay dos), entonces java lo que hace es agrupar 
+las clases en paquetes.
+Java.lang ; java.util ; java.io ; java.net ; java.sql ; java.applet ; java.awt
+
+1.1. lang : Tiene las clases basicas string , system , math.
+1.2. util: Tiene utilidades de uso general.
+1.3. io : Clases de entrada y salida.
+1.4. net : Para trabajo en la red.
+1.5. sql  : Clases de bases de datos.
+1.6. applet : Para crear applets.
+1.7. awt : Para crear interfaces graficas.
+De esta manera se resuelven los conflictos de nombre.
+Java.sql.Connection.......
+java.net.Connection.......
+Hay otros paquetes con la siguiente forma:
+javax.swing
+javax.servlet
+javax.jsp
+Estos dos ultimos son programas que se ejecutan en el servidor web.
+Estos paquetes son extensiones estandar , no tienen porque venir con la maquina virtual 
+pero cuando los instalamos tienen los mismos privilegios que los que empiezan por java.
+Para instalarlas copiamos el fichero en c:\jdk1.3.1_01\lib\ext
+
+?La sentencia import
+import <paquete>.[<subpaquete>.][<nombreclase>].*;
+import java.util.Date;
+import java.io.*;
+El asterisco no imcrementa el tiempo de ejecucion pero si el tiempo de compilacion.
+Java.lang.*;		//Siempre esta importado
+Si existe una clase con el mismo nombre en paquetes distintos e importamos los dos 
+paquetes :
+import java.sql.*;
+import java.net.*;
+El compilador no dice nada a no ser que utilicemos la clase ambigua.
+En caso de que queramos acceder a ella ponemos el nombre completo de la clase.
+
+Importar un paquete no implica importar sus subpaquetes.
+
+?Crear nuestros paquetes
+
+?  Crear un subdirectorio con el nombre del paquete donde depositamos las clases.
+?  Hacer que el classpath apunte a la base de ese directorio.
+Juegos.ajedrez.*;
+c:\Alumnos\xxx\juegos\ajedrez\clases
+set classpath=%classpath%;c:\alumnos\xxx
+-Indicar en el fichero .java que la clase esta empaquetada.
+package juegos.ajedrez	(los paquetes siempre van en minusculas)
+
+2.Encapsulacion.
+
+Es otra caracteristica importante que busca simplificar el sistema ocultando los detalles no 
+relevantes de un objeto.
+2.1A nivel de clase
+
+Si una clase es publica esta es accesible desde cualquier paquete y si no es publica se le 
+llama clase de paquete y es accesible solo dentro del paquete donde fue definida.
+Las clases publicas se ponen en un fichero cuyo nombre coincide con el de la clase.
+Las clases de paquete se pueden poner en un fichero aparte o bien dentro de una clase 
+publica.
+Si una clase de paquete la ponemos dentro de una clase publica, la clase paquete solo la 
+utiliza la publica.
+
+Ordenador.java
+public class Ordenador
+{
+	public Teclado teclado;
+	public Raton raton;
+}
+class Teclado //Clase de paquete 
+{
+}
+class Raton	//Clase de raton
+{
+}
+
+2.2.A nivel de miembros de una clase	(atributos y metodos)
+
+1.Cuando se puede acceder a miembros de la clase desde instancias del objeto.
+2.Si las clases que derivan de la nuestra pueden acceder a nuestros miembros.
+3.Si se puede acceder a los miembros desde otro paquete.
+
+MODIFICADORES :
+public : Siempre se puede acceder.
+Protected : Al miembro se puede acceder desde cualquier sitio del paquete y desde las 
+clases que derivan aunque no sean miembros del paquete.
+Sin modificador: Al miembro pueden acceder las clases del paquete sean o no subclases.
+Private : Al miembro solo pueden acceder los miembros de la clase . Las subclases heredan 
+pero son inaccesibles.
+
+Hay una costumbre de hacer a los atributos privados y poder acceder a ellos a traves de 
+metodos.
+
+Public class Coche
+{
+	private int gasolina;
+	public int gasolina()
+	{
+		return gasolina;
+	}
+	public void repostar(int cuanto)
+	{
+		if(cuanto < 0 )
+		return;
+		gasolina+=cuanto;
+	}
+}
+
+public class  Base
+{
+	private String mensaje=”Hola a todos”;
+	public void saluda()
+	{
+		System.out.println(mensaje);
+	}}
+
+public class Derivada extends Base
+{
+	public void dibujaPre()
+	{
+		Saluda();
+	}
+}
+Aunque la derivada no puede acceder a mensaje, si puede acceder a saluda();
+
+Podemos crear constructores publicos , de paquete y privados.
+Public class Punto 
+{
+	public int x,y;
+	Public Punto (int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	private Punto()
+	{
+		
+	}
+	public Punto puntoMedioCon(Punto p2)
+	{
+		Punto pm=new Punto();
+		pm.x=(this.x+p2.x)/2;
+		pm.y=(this.y+p2.y)/2;
+		return pm;
+	}
+}
+
+
+
+
+El constructor privado se utiliza a nivel interno , en el ejemplo el metodo utiliza el 
+constructor interno , pero de cara al publico obligamos a dar parametros.
+Los modificadores de acceso se aplican a nivel de clase y no a nivel de objeto.
+
+Public class Punto 
+{
+	private int x,y;
+	public punto(int x,int y)
+	{
+		this.x=x;
+		this.y=y;
+	}
+	public double distanciaA(Punto otro)
+	{
+		return Math.sqrt(Math.pow(this.x-otro.x)+Math.pow(this.y-otro.y));
+	}
+}
+
+Aquí desde un objeto punto accedemos a los atributos de otro, pero siempre trabajando 
+desde dentro de la clase.
+Cuando redefinimos un metodo este puede pasar de ser mas restringido a menos restringido 
+, pero lo contrario no se da.
+
+Protected-----public     //correcto
+protected-----private    //Error
+
+public class Base
+{
+	public void saluda()
+	{
+		System.out.println(“Hola”);
+	}
+}
+
+public class Derivada extends Base
+{
+	private void saluda()
+	{
+		System.out.println(“Adios”);
+	}
+}
+
+Base b=new Derivada();
+b.Saluda();		//No puede acceder.
+
+3.Las interfaces
+
+Definicion de las operaciones publicas de un tipo de objeto.
+Es un standar de como se comporta un elemento.
+
+Public interface Televisor
+{
+	public abstract void encender();
+	public abstract void apagar();
+	public abstract boolean subirVolumen(int cuanto);
+	public abstract boolean cambiarCanal(int canal);
+}
+
+public class Sony implements Televisor
+{
+	public static final int vol_maximo=10;
+	public static final int vol_minimo=0;
+	public static final int max_canal=100;
+	public static final int min_canal=1;
+	public int volumen;
+	public int canal;
+	public Sony(int volumen, int canal)
+	{
+		volumen=volumen;
+		canal=canal;
+	}
+	public void encender ()
+	{
+		System.out.println(“Bienvenido a Sony”);
+	}
+	public void apagar()
+	{
+		System.out.println(“Adios”);
+	}
+	public boolean subirVolumen(int cuanto)
+	{
+		int nuevo_volumen=volumen+cuanto;
+		if(nuevo_volumen>vol_maximo || nuevo_volumen<vol_minimo)
+		return false;
+		volumen=nuevo_volumen;
+		return true;
+	}
+	public boolean cambiarCanal(int c)
+	{
+		if(c>max_canal || c<min_canal)
+		return false;
+		canal=c;
+		return true;
+	}
+}
+
+Una interface debe estar implementada por varias clases.
+Una clase puede implementar varias interfaces.
+“public class Sony implements Televisor , Video” en este ejemplo debe implementar todas 
+las operaciones de todas las interfaces y si alguna operación estubiera repetida (encender)  
+,solo se implementa una vez y sirve para las dos.
+Los metodos de una interface siempre son publicos y abstactos aunque no lo pongamos.
+Solo se pueden tener atributos publicos , estaticos y finales y aunque no los pongamos 
+tienen estos modificadores.
+
+Public interface Teclado 
+{
+	int N_tecla=105;			//public static final N_tecla=105;
+	Char letraPulsada();			//public abstract char letraPulsada();
+	boolean PulsadMayus();		//public abstract boolean PulsadMayus();
+}
+
+Las interfaces no se pueden instanciar pero podemos crear referencias con ellas.
+Televisor t;		//Correcto
+t=new Televisor();		//Error
+Solo puede apuntar a objetos que la implementan :
+t=new Sony();		//Correcto
+
+
+t.encender();		//Metodo de Sony.
+
+Public static void aplotronateJuntoAl(Televisor t)
+{
+	t.encender();
+	-------------------------
+	-------------------------
+	t.apagar();
+}
+
+apoltronateJuntoAl(new Sony(2,3));
+Las interfaces derivan de Object.
+Siempre usan enlace dinamico donde el metodo a usar se sabe en tiempo de ejecucion.
+Las interfaces sirven para tener de una manera organizada un tipo de objetos, que son 
+diferentes pero tienen los mismos metodos ya que implementan una misma interface.
+Se diferencia de la herencia en que se usa mas para asegurar que un tipo de objetos tengan 
+los mismos metodos y de esta manera tambien tenerlo mas organizado.
+
+-Herencia multiple en Java
+
+En java no hay herencia multiple ,una clase solo puede derivar de otra, pero si la hay con 
+las interfaces ya que si hay metodos repetidos en las clases que implementa no pasa nada ya 
+que ese metodo sirve para las dos clases que implementa.
+
+
+Excepciones :
+
+1.Introduccion .
+	1.Errores de compilacion .
+	2.Excepciones.
+
+
+1.Problemas que encuentra el copilador porque no hemos escrito bien el programa.
+2.Es un problema que ocurre en tiempo de ejecucion y puede ser de tipo hardware o hasta 
+un error logico.
+Cuando se produce se crea un objeto con informacion del porque , este objeto se lanza al 
+programa y a no ser que capturemos la excepcion se detiene el programa y aparece la 
+excepcion en la consola.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Excepcion : Errores de nuestro programa que deberiamos capturar .
+Error : Errores no destinados a nuestro programa.
+Ejemplo : NotSuchMethod Error : Sin main.
+
+1.Excepciones de sistema o no comprobadas.
+2.Excepciones de usuario o comprobadas.
+
+1.Las produce la maquina virtual cuando encuentra un problema en el programa por el que 
+no deja que continue ejecutando.
+
+RunTimeException aki
+
+			1.ArithmeticException
+
+			2.NullPointerException
+
+			3.ClassCastException
+
+			4.IndexOutOfBoundsException
+
+			5.NegativeArrayException
+
+			6.SecurityException
+
+1.Operacion aritmetica no valida.
+2.Cuando utilizamos referencias que no apuntan a nada.
+3.Es con un problema de casting de base a derivada.
+4.Cuando nos salimos fuera de los elementos de un array.
+5.Es cuando en un Array intentamos acceder a un indice negativo.
+6.Cuando un programa intenta acceder a algo no permitido.
+
+
+2.Excepciones de usuario o comprobadas.
+
+Excepciones que produce nuestro programa.
+Estas excepciones las producen las librerias o el usuario.
+
+El bloque try/catch
+
+En un bloque try encerramos codigo que puede producir una excepcion despues creamos un 
+bloque catch donde indicamos que hacer si se produce la excepcion.
+
+int cociente ;
+try{
+	int dividendo =40, divisor=0;
+	cociente = dividendo /divisor;
+	System.out.println(“Division corecta”);
+	}
+catch(ArithmeticException ex)
+{
+	System.out.println(“Excepcion con mensaje: “+ex.toString());
+	cociente=0;
+}
+El comodin para coger todas las excepciones seria “catch (Exception ex)”.
+Si una funcion no captura la excepcion la misma viaja por la pila de excepciones hasta 
+llegar a main y si main tampoco la captura se detiene el programa.
+Siempre que haya un try y se encuentra una excepcion aunque el programa tenga que 
+retroceder busca un catch .
+
+public static void main (String[]args)
+{
+	try{
+		int argumentos=args.length;
+		int b=40/argumentos;		//Posible excepcion
+		int []A={1,2,3};
+		System.out.println(A[argumentos]);		//Posible execpcion
+	}
+	catch (ArithmeticException ex){
+		System.out.println(“No hay argumentos”);
+		}
+	catch (IndexOutOfBoundsException ex){
+		System.out.println(“Demasiados argumentos”);
+		}
+	catch (Exception ex){
+		System.out.println(“Excepcion desconocida”);
+		}		//Este catch siempre al final
+}
+
+Lanzar la excepcion con throw
+
+Al ver algo anomalo creamos un objeto y lo lanzamos.
+1.Instanciamos el objeto excepcion con new.
+2.Capturandola con el catch y lanzandola despues.
+
+public static void pintaLinea(int ancho)
+{
+	try{	if(ancho >80)
+		{
+			throw new ArithmeticException(“Demasiado largo”);
+		}
+		//Pintamos la linea.
+	}
+	catch(ArithmeticException ex){
+		System.out.println(“Capturado en pintaLinea()”);
+		throw ex;		//La volvemos a pasar.
+		}
+}
+public static void main (String []args)
+{
+	try {
+		pintalinea(10);
+		pintalinea(90);
+		}
+
+catch(ArithmrticException ex){
+	System.out.println(“Capturada de nuevo”);
+	}
+}
+
+En este ejemplo dentro de la funcion pintaLinea capturamos la excepcion pero como luego 
+en el catch volvemos a lanzar la excepcion ponemos otro catch en la main que lo recoja.
+
+3.La lista de throws
+Si un metodo puede provocar una excepcion que no se captura debe especificar este 
+comportamiento en su prototipo para que los llamantes puedan protegerse frente a esa 
+excepcion .
+public static pintaFecha(fecha f, int posicion) throws ArithmeticException , 
+NullPointerException 
+{
+	if(f==null)
+	throw new NullPointerException(“No hay fecha”);
+	if(posicion >80)
+	throw new ArithmeticException(“demasiado lejos”);
+	//Pinta la fecha en la posicion dada.
+}
+
+Solo es obligatorio avisar de las excepciones de usuario , no es obligatorio las de sistema.
+
+public static void proc1 throws IOException
+{
+	System.out.println(“Algo va mal”);
+	throw new IOException(“Probando”);
+}
+public static void main (String []args) throws Exception
+{
+	proc1();
+}
+tambien podemos hacer :
+public static void main (String []args) 
+{
+	try{
+		proc1();
+	}
+	catch(IOException ex){
+	}
+}
+
+Cuando redefinimos un metodo las excepciones lanzadas tienen que ser como maximo las 
+que lanza el metodo de la clase base.
+
+REGLA:
+Si el constructor de una clase base lanza una excepcion el de la base derivada no la puede 
+capturar , sino que esta obligado a definir una lista de throws que lo capture.
+
+
+
+
+
+
+
+public class Base
+{
+	public void saluda(int veces)
+	{
+		for(int i=0;i<veces;i++)
+		System.out.println(“HOLA”);
+	}
+}
+
+public class Derivada extends Base
+{
+	public void saluda(int veces) throws ArithmeticException
+	{
+		if(veces>10)
+		throw new ArithmeticException(“Demasiadas veces”);
+		super.saluda(veces);
+	}
+}
+
+Esto no se puede hacer por esto :
+Base b=new Derivada();
+b.saluda(25);
+Con la referencia de base se ejecutaria el de la derivada y daria una excepcion.
+
+Los constructores pueden llevar lista de throws en cuyo caso si se da excepcion se creara un 
+objeto pero no nos da una referencia a el con lo cual se eliminara el objeto creado.
+
+try{
+	File f=new File(“carta.txt”);
+	}
+catch(IOException ex){
+	//Lo que sea.
+	}
+public class File
+{
+	public File (String filename) throws FileNotFoundException
+	{
+		---
+		---
+	}
+}
+
+public class AutoexecBat extends File
+{
+	public AutoexecBat()
+	{
+		try{	super(“autoexec.bat”);	//Error
+			}
+		catch(FileNotFoundException ex){
+			}
+}
+
+No podemos capturar la excepcion de la base.
+
+Public class AutoexecBat extends File
+{
+	public void MiFichero() throws FileNotFoundException
+	{
+		super(“autoexec.bat”);	//Correcto
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+La clausula finally
+
+Cuando se produce una excepcion el programa retrocede y deja cosas sin ejecutar .
+finally sirve para ejecutar sentencias que necesitemos ejecutar.
+
+try{					try{
+	---					---
+	---					---	
+	}					}
+finally{				catch(){
+	---					---
+	---					---
+	}					}
+					finally{
+						---
+						---	
+						}
+
+Con finally siempre se ejecuta ese codigo .
+Si el catch esta en la misma funcion se ejecuta despues que el catch y si el catch esta en una 
+funcion anterior se ejecuta el finally antes que el catch.
+
+Crear tipos de Excepciones
+
+Para esto tenemos que crear derivadas de Exception.
+Exception (String message)
+String <Exception>getMessage();	//Saca el mensaje
+String <Exception> toString();
+void<Exception>printStackTrace();
+Esta devuelve la pila de funciones hasta que da con la que produce la excepcion.
+
+VENTAJAS DEL USO DE EXCEPCIONES FRENTE A MANEJO TRADICIONAL DE 
+ERRORES
+1.Las excepciones separan el manejo de errores del flujo  normal del programa.
+2.El error se propaga automaticamente por la pila de llamadas a funciones. El lenguaje trata 
+el pasar el error a la que tiene el catch automaticamente.
+3.Permiten agrupar los errores en categorias llevando al nivel de detalle que queramos.
+

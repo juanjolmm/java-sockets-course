@@ -1,0 +1,24 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "AddressBook_Server"
+JDKPROFILE := "jdk1.4.1"
+ACTIVE := "0"
+OUTPUTPATH := "..\\\\AddressBook_Server"
+COMPILER := "<Default>"
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "" RUNAPPLET := "" PARAM := "" RUN := "Servidor" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+#[BeginRLibrary]LABEL := "csm.addressbook" #[EndRLibrary]
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFile]SOURCE := "\\HiloLectorServidor.java" #[EndFile]
+#[BeginFile]SOURCE := "\\Servidor.java" #[EndFile]
+#[BeginFile]SOURCE := "\\ThreadAccept.java" #[EndFile]
+#[EndFolder]

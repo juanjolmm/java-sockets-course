@@ -1,0 +1,24 @@
+! ** JCreator Project File (C)2000
+! ********** DO NOT EDIT *********
+
+VERSION := "1.10"
+LABEL := "AddressBook_Writer"
+JDKPROFILE := "jdk1.4.1"
+ACTIVE := "0"
+OUTPUTPATH := "\\classes"
+COMPILER := "<Default>"
+
+! Start RunTime Configuration Structure
+#[BeginRunTime]LABEL := "<Default>" RUNAPPLIC := "" RUNAPPLET := "" PARAM := "" RUN := "ClienteEscribe" CHECK := "10" #[EndRunTime]
+! Start Required Libraries Structure
+#[BeginRLibrary]LABEL := "csm.addressbook" #[EndRLibrary]
+
+! Start Project Folder Structure
+#[BeginFolder]
+LABEL := "Root"
+FILTER := ""
+
+#[BeginFile]SOURCE := "\\ClienteEscribe.java" #[EndFile]
+#[BeginFile]SOURCE := "\\HiloEscribe2.java" #[EndFile]
+#[BeginFile]SOURCE := "\\HiloEscribe.java" #[EndFile]
+#[EndFolder]
